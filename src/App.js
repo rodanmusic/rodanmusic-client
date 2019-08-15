@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import './App.css'
-import { Navigation } from "./Components/Layout"
+import { Navigation, Footer } from "./Components/Layout"
 import PageTemplate from './Components/Pages'
 
 function App() {
@@ -8,6 +8,7 @@ function App() {
     <Fragment>
       <Navigation />
       <PageTemplate />
+      <Footer />
     </Fragment>
   );
 }

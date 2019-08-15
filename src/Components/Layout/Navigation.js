@@ -20,37 +20,37 @@ const useStyles = makeStyles(theme => ({
     },
     logo: {
       padding: "19px 20px 0px 0px",
-      height: "25px",
+      height: "25px"
     }
-  }));
+}));
 
 export default (props) => {
   const [value, setValue] = React.useState(0);
-    const classes = useStyles();
+  const classes = useStyles();
 
-    function handleChange(event, newValue){
-      setValue(newValue);
-    }
+  function handleChange(event, newValue){
+    setValue(newValue);
+  }
 
-    const matches = useMediaQuery('(min-width: 400px)');
-    let logoCrop = matches ? {} : {maxWidth: '30px', overflow: 'hidden'};
+  const matches = useMediaQuery('(min-width: 400px)');
+  let logoCrop = matches ? {} : {maxWidth: '30px', overflow: 'hidden'};
 
-    return (
-        <AppBar className={classes.toolbar} position="static">
-            <Toolbar>
-                <div style={logoCrop}>
-                <a href="index.html">
-                  <img class={classes.logo} alt="Rodan" src={logoLocation} />
-                </a>
-                </div>
-                <Box variant="h6" className={classes.title}/>
-                <Tabs value={value} onChange={handleChange} indicatorColor="secondary" variant="scrollable">
-                  <Tab label="Bio" />
-                  <Tab label="Events" />
-                  <Tab label="Blog" />
-                  <Tab label="Contact" />
-                </Tabs>
-            </Toolbar>
-        </AppBar>
-    );
+  return (
+    <AppBar className={classes.toolbar} position="static">
+        <Toolbar>
+            <div style={logoCrop}>
+            <a href="index.html">
+              <img class={classes.logo} alt="Rodan" src={logoLocation} />
+            </a>
+            </div>
+            <Box variant="h6" className={classes.title}/>
+            <Tabs value={value} onChange={handleChange} indicatorColor="secondary" variant="scrollable">
+              <Tab label="Media" />
+              <Tab label="Events" />
+              <Tab label="Blog" />
+              <Tab label="Contact" />
+            </Tabs>
+        </Toolbar>
+    </AppBar>
+  );
 };
