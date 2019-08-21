@@ -1,4 +1,5 @@
-import React from 'react';
+import Home from './Home';
 
-export default props =>
-    <div><h1>Home</h1></div>
+export {
+    Home
+}

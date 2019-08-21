@@ -1,15 +1,14 @@
-import React, { Fragment } from 'react'
-import './App.css'
-import { Navigation, Footer } from "./Components/Layout"
-import PageTemplate from './Components/Pages'
+import React from 'react';
+import Structure from './Components/Layout/Structure';
+
+// Navigation handled here
+function navigate(page){
+
+}
 
 function App() {
   return (
-    <Fragment>
-      <Navigation />
-      <PageTemplate />
-      <Footer />
-    </Fragment>
+    <Structure location={navigate}/>
   );
 }
 

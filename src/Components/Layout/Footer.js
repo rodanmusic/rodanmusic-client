@@ -1,5 +1,6 @@
 import React from "react";
 import facebookLocation from './Images/Facebook.png';
+import soundcloudLocation from './Images/Soundcloud.png';
 
 const styles = {
     container: {
@@ -28,10 +29,12 @@ export default (props) => {
                 </a>
             </div>
             <div style={styles.soundcloud}>
-                <iframe title="soundcloud" allowtransparency="true" scrolling="no" frameborder="no" src="https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Frodanmusic&color=white_transparent&size=40" style={styles.soundcloudIcon}></iframe>
+                <a href="http://www.soundcloud.com/rodanmusic" alt="Rodan Soundcloud">
+                    <img style={styles.soundcloud} src={soundcloudLocation} alt="Rodan Soundcloud"/>
+                </a>
             </div>
             <div style={styles.tumblr}>
-                <iframe class="btn" title="tumblr" frameborder="0" border="0" scrolling="no" allowtransparency="true" height="20" width="95" src="https://platform.tumblr.com/v2/follow_button.html?type=follow-blog&amp;tumblelog=rodanmusic&amp;color=white"></iframe>
+                <iframe className="btn" title="tumblr" frameBorder="0" border="0" scrolling="no" allowtransparency="true" height="20" width="95" src="https://platform.tumblr.com/v2/follow_button.html?type=follow-blog&amp;tumblelog=rodanmusic&amp;color=white"></iframe>
             </div>
         </div>
     );

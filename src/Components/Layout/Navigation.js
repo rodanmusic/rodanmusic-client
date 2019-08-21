@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Tabs, Tab, Box } from '@material-ui/core';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -32,19 +32,20 @@ export default (props) => {
     setValue(newValue);
   }
 
-  const matches = useMediaQuery('(min-width: 400px)');
-  let logoCrop = matches ? {} : {maxWidth: '30px', overflow: 'hidden'};
+  const matches = useMediaQuery("(min-width: 400px)");
+  let logoCrop = matches ? {} : {maxWidth: "30px", overflow: "hidden"};
 
   return (
     <AppBar className={classes.toolbar} position="static">
         <Toolbar>
             <div style={logoCrop}>
             <a href="index.html">
-              <img class={classes.logo} alt="Rodan" src={logoLocation} />
+              <img className={classes.logo} alt="Rodan" src={logoLocation} />
             </a>
             </div>
             <Box variant="h6" className={classes.title}/>
-            <Tabs value={value} onChange={handleChange} indicatorColor="secondary" variant="scrollable">
+            <Tabs value={value} onChange={handleChange} indicatorColor="secondary" scrollButtons="on" variant="scrollable">
+              <Tab label="Bio" />
               <Tab label="Media" />
               <Tab label="Events" />
               <Tab label="Blog" />
