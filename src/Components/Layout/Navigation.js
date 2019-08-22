@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Tabs, Tab, Box } from '@material-ui/core';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import logoLocation from './Images/RodanLogo.jpg';
+import LogoLocation from './Images/RodanLogo.jpg';
 
 const useStyles = makeStyles(theme => ({
     tabLabel: {
@@ -40,7 +40,7 @@ export default (props) => {
         <Toolbar>
             <div style={logoCrop}>
             <a href='index.html'>
-              <img className={classes.logo} alt='Rodan' src={logoLocation} />
+              <img className={classes.logo} alt='Rodan' src={LogoLocation} />
             </a>
             </div>
             <Box variant='h6' className={classes.title}/>
