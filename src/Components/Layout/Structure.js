@@ -5,14 +5,14 @@ import { Grid } from '@material-ui/core';
 
 const styles = {
   header: {
-    position: "fixed",
-    top: "0px",
-    width: "100%"
+    position: 'fixed',
+    top: '0px',
+    width: '100%'
   },
   footer: {
-    position: "fixed",
-    bottom: "0px",
-    width: "100%"
+    position: 'fixed',
+    bottom: '0px',
+    width: '100%'
   }
 }
 

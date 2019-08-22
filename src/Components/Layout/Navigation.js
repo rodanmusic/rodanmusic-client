@@ -9,18 +9,18 @@ const useStyles = makeStyles(theme => ({
       color: theme.palette.common.white
     },
     toolbar: {
-      background: "black"
+      background: 'black'
     },
     root: {
       flexGrow: 1,
     },
     title: {
-      paddingRight: "10px",
+      paddingRight: '10px',
       flexGrow: 1,
     },
     logo: {
-      padding: "19px 20px 0px 0px",
-      height: "25px"
+      padding: '19px 20px 0px 0px',
+      height: '25px'
     }
 }));
 
@@ -32,24 +32,24 @@ export default (props) => {
     setValue(newValue);
   }
 
-  const matches = useMediaQuery("(min-width: 400px)");
-  let logoCrop = matches ? {} : {maxWidth: "30px", overflow: "hidden"};
+  const matches = useMediaQuery('(min-width: 400px)');
+  let logoCrop = matches ? {} : {maxWidth: '30px', overflow: 'hidden'};
 
   return (
-    <AppBar className={classes.toolbar} position="static">
+    <AppBar className={classes.toolbar} position='static'>
         <Toolbar>
             <div style={logoCrop}>
-            <a href="index.html">
-              <img className={classes.logo} alt="Rodan" src={logoLocation} />
+            <a href='index.html'>
+              <img className={classes.logo} alt='Rodan' src={logoLocation} />
             </a>
             </div>
-            <Box variant="h6" className={classes.title}/>
-            <Tabs value={value} onChange={handleChange} indicatorColor="secondary" scrollButtons="on" variant="scrollable">
-              <Tab label="Bio" />
-              <Tab label="Media" />
-              <Tab label="Events" />
-              <Tab label="Blog" />
-              <Tab label="Contact" />
+            <Box variant='h6' className={classes.title}/>
+            <Tabs value={value} onChange={handleChange} indicatorColor='secondary' scrollButtons='on' variant='scrollable'>
+              <Tab label='Bio' />
+              <Tab label='Media' />
+              <Tab label='Events' />
+              <Tab label='Blog' />
+              <Tab label='Contact' />
             </Tabs>
         </Toolbar>
     </AppBar>
