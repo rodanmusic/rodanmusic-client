@@ -18,11 +18,11 @@ const styles = {
 
 export default props => {
 
-  const isMobile = useMediaQuery('only screen and (max-device-width : 551px)'); // image size is 552
-  
+  const isSmallFormat = useMediaQuery('only screen and (max-device-width : 551px)'); // image size is 552
+
   let imageAdjustment = {paddingTop: '75px'};
   let container = {paddingTop: '120px'}
-  if(isMobile){
+  if(isSmallFormat){
     imageAdjustment = {width: '95%', height: '95%', paddingTop: '70px'};
     container = {paddingTop: '80px', paddingBottom: '80px'}
   }
@@ -33,7 +33,7 @@ export default props => {
           <Navigation location={props.location.navValue} />
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid item xs={12} style={{marginBottom: '30px'}}>
           <Grid container direction='row' wrap='wrap-reverse'>
             <Grid item xs={12} sm>  
                 <div align='center'>
@@ -45,7 +45,6 @@ export default props => {
             </Grid>
           </Grid>
         </Grid>
-
         <Grid item xs={12} style={styles.footer}><Footer /></Grid>
     </Grid>
   )

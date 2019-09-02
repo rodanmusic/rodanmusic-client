@@ -3,6 +3,7 @@ body {
 }
 
 a {
-    color: #88152e;
+    color: #f50057;
     font-weight: bold;
+    text-decoration: none;
 }

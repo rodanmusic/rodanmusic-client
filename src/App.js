@@ -4,6 +4,7 @@ import { Blog, Contact, Events, Home, Media, PageNotFound } from './Components/P
 import { useRoutes } from 'hookrouter';
 
 // Navigation handled here
+// TODO: move page management and state to separate js file.
 
 const pages = {
   "/": () => {

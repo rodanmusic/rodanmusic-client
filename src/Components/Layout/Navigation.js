@@ -1,9 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Tabs, Tab, Box } from '@material-ui/core';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import LogoLocation from './Images/RodanLogo.jpg';
-import { navigate, useRoutes } from 'hookrouter';
+import { navigate } from 'hookrouter';
+import RodanLogo from './RodanLogo';
 
 const useStyles = makeStyles(theme => ({
     tabLabel: {
@@ -18,10 +17,6 @@ const useStyles = makeStyles(theme => ({
     title: {
       paddingRight: '10px',
       flexGrow: 1,
-    },
-    logo: {
-      padding: '19px 20px 0px 0px',
-      height: '25px'
     }
 }));
 
@@ -39,17 +34,10 @@ export default (props) => {
     navigate('/' + newValue);
   }
 
-  const matches = useMediaQuery('(min-width: 400px)');
-  let logoCrop = matches ? {} : {maxWidth: '30px', overflow: 'hidden'};
-
   return (
     <AppBar className={classes.toolbar} position='static'>
         <Toolbar>
-            <div style={logoCrop}>
-            <a href='index.html'>
-              <img className={classes.logo} alt='Rodan' src={LogoLocation} />
-            </a>
-            </div>
+            <RodanLogo />
             <Box variant='h6' className={classes.title}/>
             <Tabs value={value} onChange={handleNavigate} indicatorColor='secondary' scrollButtons='on' variant='scrollable'>
               <Tab value='home' label='Bio' />

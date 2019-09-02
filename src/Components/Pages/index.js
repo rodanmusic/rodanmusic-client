@@ -1,4 +1,4 @@
-import Blog from './Blog';
+import Blog from './Blog/Blog';
 import Contact from './Contact';
 import Events from './Events';
 import Home from './Home';
