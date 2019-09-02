@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Typography} from '@material-ui/core';
 import { ContentContainer } from '../../Layout'
-import { tags } from './BlogTags';
+import Tags from './BlogTags';
+import Selector from '../../Common/Selector';
 
-const DEFAULT_TAG = "techno"
+const DEFAULT_TAG = 'techno';
+const BLOG_ENDPOINT = 'http://localhost:4000/blog/posts/tags/'
 
 export default (props) => {
 
@@ -12,21 +14,26 @@ export default (props) => {
     const [currentTag, setCurrentTag] = useState(DEFAULT_TAG);
 
     useEffect(() => {
-        // TODO: move this out
         async function retrieveBlogPosts(){
-            const res = await fetch(`http://localhost:4000/blog/posts/tags/${currentTag}`, {
+            const res = await fetch(BLOG_ENDPOINT + `${currentTag.toLowerCase()}`, {
                 method: 'GET'
-            });
-            res.json().then((json) => {
-                let parsedJSON = JSON.parse(json.postEntries)
-                setBlogPosts({entries: parsedJSON});
             }).catch((err) => {
                 console.error(err);
                 setError('Unable to retrieve blog posts.  Please try again momentarily or contact the administrator.');
             });
+            if(res){
+                res.json().then((json) => {
+                    let parsedJSON = JSON.parse(json.postEntries)
+                    setBlogPosts({entries: parsedJSON});
+                });
+            };
         }
         retrieveBlogPosts();
-    }, []);
+    }, [currentTag]);
+
+    let tagSelected = (tag) => {
+        setCurrentTag(tag);
+    }
 
     return (
         <>
@@ -35,7 +42,7 @@ export default (props) => {
                     Follow me and discover more music on the <a href='http://rodanmusic.tumblr.com/'>Night Beats</a> blog.
                 </Typography>
                 <Typography variant='caption'>
-                    Select Genre
+                    <Selector items={Tags} default={'Techno'} handleSelect={tagSelected} descriptor={'Select a genre'}></Selector>
                 </Typography>
             </ContentContainer>
             {   
@@ -44,7 +51,7 @@ export default (props) => {
                 })
             }
             {
-                error && <Typography variant='body2' paragraph>{error}</Typography>
+                error && <ContentContainer><Typography color={'error'} style={{paddingTop: '20px'}} variant='body2' paragraph>{error}</Typography></ContentContainer>
             }
 
         </>
