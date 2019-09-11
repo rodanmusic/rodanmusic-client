@@ -5,7 +5,7 @@ import Tags from './BlogTags';
 import Selector from '../../Common/Selector';
 
 const DEFAULT_TAG = 'techno';
-const BLOG_ENDPOINT = 'http://localhost:4000/blog/posts/tags/'
+const BLOG_ENDPOINT = 'localhost:4000/blog/posts/tags/'
 
 export default (props) => {
 
@@ -13,18 +13,26 @@ export default (props) => {
     const [error, setError] = useState();
     const [currentTag, setCurrentTag] = useState(DEFAULT_TAG);
 
+    let setBlogFailError = () => {
+        setError('Unable to retrieve blog posts.  Please try again momentarily or contact the administrator.');
+    }
+
     useEffect(() => {
         async function retrieveBlogPosts(){
             const res = await fetch(BLOG_ENDPOINT + `${currentTag.toLowerCase()}`, {
                 method: 'GET'
             }).catch((err) => {
                 console.error(err);
-                setError('Unable to retrieve blog posts.  Please try again momentarily or contact the administrator.');
+                setBlogFailError();
             });
             if(res){
                 res.json().then((json) => {
-                    let parsedJSON = JSON.parse(json.postEntries)
-                    setBlogPosts({entries: parsedJSON});
+                    if(json.message){
+                        console.log(json.message);
+                        setBlogFailError();
+                    } else {
+                        setBlogPosts({entries: JSON.parse(json.postEntries)});
+                    }
                 });
             };
         }

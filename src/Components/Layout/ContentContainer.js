@@ -5,7 +5,7 @@ export default (props) => {
 
     const extraSmall = useMediaQuery('(max-width:400px)');
     const extraLarge = useMediaQuery('(min-width:1050px)');
-    
+
     let contentPad = {padding: '0px 75px 10px 75px'};
     if(extraSmall){
         contentPad = {padding: '0px 10px 10px 10px'};

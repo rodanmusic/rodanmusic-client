@@ -10,8 +10,6 @@ const styles = {
     width: '100%'
   },
   footer: {
-    position: 'fixed',
-    bottom: '0px',
     width: '100%'
   }
 }
@@ -23,8 +21,8 @@ export default props => {
   let imageAdjustment = {paddingTop: '75px'};
   let container = {paddingTop: '120px'}
   if(isSmallFormat){
-    imageAdjustment = {width: '95%', height: '95%', paddingTop: '70px'};
-    container = {paddingTop: '80px', paddingBottom: '80px'}
+    imageAdjustment = {width: '95%', height: '95%', paddingTop: '62px'};
+    container = {paddingTop: '80px', paddingBottom: '0px'}
   }
 
   return (
@@ -42,10 +40,10 @@ export default props => {
             </Grid>
             <Grid item xs={12} sm style={container}>
                 {props.location.component}
+                <Footer />
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={12} style={styles.footer}><Footer /></Grid>
     </Grid>
   )
 };
