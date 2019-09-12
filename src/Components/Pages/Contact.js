@@ -5,7 +5,7 @@ import { RedButton } from "../Common/RedButton";
 import { RedTextBox, FieldType } from "../Common/RedTextBox";
 
 const axios = require('axios');
-const CONTACT_ENDPOINT = 'localhost:4000/contact/send'
+const CONTACT_ENDPOINT = 'http://localhost:4000/contact/send'
 
 export default (props) => {
     const [messageState, setMessageState] = useState({name: '', email: '', message: ''});
@@ -13,18 +13,20 @@ export default (props) => {
     const [messageError, setMessageError] = useState('');
     const [submitDisabled, setSubmitDisabled] = useState(true);
 
+    let watchValues = [messageState.name, messageState.email, messageState.message];
+
     useEffect(() => {
+        resetMessages();
         setSubmitDisabled(
             messageState.name.length === 0 || 
             messageState.email.length === 0 || 
             !messageState.email.includes('@') || 
             messageState.message.length === 0
         );
-    }, [messageState.name, messageState.email, messageState.message]);
+    }, watchValues);
 
     const sendMessage = useCallback(() => {
-        setMessageSuccess('');
-        setMessageError('');
+        resetMessages();
         axios.post(CONTACT_ENDPOINT, {
             method: 'post',
             url: CONTACT_ENDPOINT,
@@ -39,9 +41,14 @@ export default (props) => {
             setMessageSuccess('Message Sent');
         }, (error) => {
             console.log(error);
-            setMessageError('Unable to send message.  Please try again later, or contact Rodan on his Facebook, or Soundcloud.');
+            setMessageError('Unable to send your message.  Please try again later, or contact Rodan on his Facebook, or Soundcloud.');
         });
-    }, [messageState.name, messageState.email, messageState.message]);
+    }, watchValues);
+
+    let resetMessages = () => {
+        setMessageSuccess(undefined);
+        setMessageError(undefined);
+    }
 
     let handleChange = name => event => {
         setMessageState({...messageState, [name]: event.target.value });
@@ -71,16 +78,21 @@ export default (props) => {
                             Submit
                         </RedButton>
                     </Grid>
-                    <Grid align='right' item xs={12}>
-                        {
-                            messageError && <ContentContainer><Typography color={'error'} style={{paddingTop: '20px'}} variant='body2' paragraph>{messageError}</Typography></ContentContainer>
-                        }
-                        {
-                            messageSuccess && <ContentContainer><Typography color={'primary'} style={{paddingTop: '20px'}} variant='body2' paragraph>{messageSuccess}</Typography></ContentContainer>
-                        }
-                    </Grid>
                 </Grid>
             </ContentContainer>
+            {
+                (messageError || messageSuccess) &&
+                    <ContentContainer>
+                        <Grid align='center' item xs={12}>
+                            {
+                                messageError && <Typography color={'error'} style={{paddingTop: '20px'}} variant='body1' paragraph>{messageError}</Typography>
+                            }
+                            {
+                                messageSuccess && <Typography color={'primary'} style={{paddingTop: '20px'}} variant='body1' paragraph>{messageSuccess}</Typography>
+                            }
+                        </Grid>
+                    </ContentContainer>
+            }
         </>
     );
 }

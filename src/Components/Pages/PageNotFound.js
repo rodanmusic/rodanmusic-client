@@ -7,11 +7,9 @@ import { RedButton } from '../Common/RedButton';
 export default (props) => {
     return (
         <Container>
-            <ContentContainer title='PAGE NOT FOUND' >
-                <Typography variant='body2'>
-                    <p>
-                       <RedButton onClick={() => navigate('/')}>Return to Rodan Bio</RedButton>
-                    </p>
+            <ContentContainer titleAlign='center' align='center' title='PAGE NOT FOUND' >
+                <Typography align='center' variant='body2'>
+                    <RedButton onClick={() => navigate('/')}>Return to Rodan Bio</RedButton>
                 </Typography>
             </ContentContainer>
         </Container> 

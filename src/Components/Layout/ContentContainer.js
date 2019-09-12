@@ -14,13 +14,14 @@ export default (props) => {
     }
 
     let titlePad = props.title ? {padding: '40px 25px 25px 25px', minWidth: '300px'} : {padding: '0px 25px 25px 25px', minWidth: '300px'};
+    let titleAlign = props.titleAlign ? props.titleAlign : 'left'
 
     return (
         <div style={contentPad}>
             <Paper square style={titlePad}>
                 {props.title &&
                     <>
-                        <Typography variant='h5' style={{paddingBottom: '5px'}}>
+                        <Typography align={titleAlign} variant='h5' style={{paddingBottom: '5px'}}>
                             {props.title}
                         </Typography>
                         <Divider variant='fullWidth'/>

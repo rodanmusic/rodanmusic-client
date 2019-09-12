@@ -5,7 +5,7 @@ import Tags from './BlogTags';
 import Selector from '../../Common/Selector';
 
 const DEFAULT_TAG = 'techno';
-const BLOG_ENDPOINT = 'localhost:4000/blog/posts/tags/'
+const BLOG_ENDPOINT = 'http://localhost:4000/blog/posts/tags/'
 
 export default (props) => {
 
