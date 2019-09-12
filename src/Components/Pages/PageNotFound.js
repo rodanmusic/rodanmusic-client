@@ -2,6 +2,7 @@ import React from 'react';
 import { Typography, Container } from '@material-ui/core';
 import { ContentContainer } from '../Layout'
 import { navigate } from 'hookrouter';
+import { RedButton } from '../Common/RedButton';
 
 export default (props) => {
     return (
@@ -9,7 +10,7 @@ export default (props) => {
             <ContentContainer title='PAGE NOT FOUND' >
                 <Typography variant='body2'>
                     <p>
-                       <a href='#' onClick={() => navigate('/')}>Return to Rodan Bio</a>
+                       <RedButton onClick={() => navigate('/')}>Return to Rodan Bio</RedButton>
                     </p>
                 </Typography>
             </ContentContainer>
