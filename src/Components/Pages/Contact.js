@@ -12,6 +12,7 @@ export default (props) => {
     const [messageSuccess, setMessageSuccess] = useState(false);
     const [messageError, setMessageError] = useState('');
     const [submitDisabled, setSubmitDisabled] = useState(true);
+    const [sending, setSending] = useState(false);
 
     let watchValues = [messageState.name, messageState.email, messageState.message];
 
@@ -26,6 +27,7 @@ export default (props) => {
     }, watchValues);
 
     const sendMessage = useCallback(() => {
+        setSending(true);
         resetMessages();
         axios.post(CONTACT_ENDPOINT, {
             method: 'post',
@@ -38,10 +40,13 @@ export default (props) => {
             timeout: 10000
         }).then((response) => {
             console.log(response);
-            setMessageSuccess('Message Sent');
+            setMessageSuccess('Message Sent!');
+            setSubmitDisabled(true);
+            setSending(false);
         }, (error) => {
             console.log(error);
             setMessageError('Unable to send your message.  Please try again later, or contact Rodan on his Facebook, or Soundcloud.');
+            setSending(false);
         });
     }, watchValues);
 
@@ -62,19 +67,19 @@ export default (props) => {
                         <Typography paragraph variant='caption'>Send me a message about bookings, music, or anything else music related.</Typography>
                     </Grid>
                     <Grid item xs={12} sm= {12} lg md xl>
-                        <RedTextBox type={FieldType.TEXT_FIELD} disabled={messageSuccess} onChange={handleChange('name')} required id='name' label='Name' margin='normal'/>
+                        <RedTextBox type={FieldType.TEXT_FIELD} disabled={messageSuccess || sending} onChange={handleChange('name')} required id='name' label='Name' margin='normal'/>
                     </Grid>
                     <Grid item xs={12} sm={12} lg md xl>
-                        <RedTextBox type={FieldType.TEXT_FIELD} disabled={messageSuccess} onChange={handleChange('email')} required id='email' label='Email' margin='normal'/>
+                        <RedTextBox type={FieldType.TEXT_FIELD} disabled={messageSuccess || sending} onChange={handleChange('email')} required id='email' label='Email' margin='normal'/>
                     </Grid>
                     <Grid item xs={12}>
                         <RedTextBox
-                            disabled={messageSuccess} onChange={handleChange('message')} id='filled-multiline-static' 
+                            disabled={messageSuccess || sending} onChange={handleChange('message')} id='filled-multiline-static' 
                             type={FieldType.TEXT_AREA} label='Message' multiline rows='4' margin='normal'variant='outlined'
                         />
                     </Grid>
                     <Grid align='right' item xs={12}>
-                        <RedButton disabled={submitDisabled} onClick={sendMessage}>
+                        <RedButton disabled={submitDisabled  || sending} onClick={sendMessage}>
                             Submit
                         </RedButton>
                     </Grid>
@@ -88,7 +93,7 @@ export default (props) => {
                                 messageError && <Typography color={'error'} style={{paddingTop: '20px'}} variant='body1' paragraph>{messageError}</Typography>
                             }
                             {
-                                messageSuccess && <Typography color={'primary'} style={{paddingTop: '20px'}} variant='body1' paragraph>{messageSuccess}</Typography>
+                                messageSuccess && <Typography color={'inherit'} style={{paddingTop: '20px'}} variant='h6' paragraph>{messageSuccess}</Typography>
                             }
                         </Grid>
                     </ContentContainer>

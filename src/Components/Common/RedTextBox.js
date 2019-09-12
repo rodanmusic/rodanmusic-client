@@ -54,4 +54,4 @@ const RedTextBox = (props) => {
     );
 }
 
-export {FieldType, RedTextBox };
+export { FieldType, RedTextBox };

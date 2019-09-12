@@ -12,7 +12,6 @@ const StyledButton = withStyles({
     }
 })(Button);
 
-
 let RedButton = (props) => {
     return (
         <>
