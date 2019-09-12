@@ -5,58 +5,69 @@ import { RedButton } from "../Common/RedButton";
 import { RedTextBox, FieldType } from "../Common/RedTextBox";
 
 const axios = require('axios');
-const CONTACT_ENDPOINT = 'http://localhost:4000/contact/send'
+const CONTACT_ENDPOINT = 'http://localhost:4000/contact/send';
+const MessageState = {
+    WAITING: 'WAITING',
+    SENDING: 'SENDING',
+    SUCCESS:'SUCCESS',
+    FAILED: 'FAILED'
+};
 
 export default (props) => {
-    const [messageState, setMessageState] = useState({name: '', email: '', message: ''});
-    const [messageSuccess, setMessageSuccess] = useState(false);
-    const [messageError, setMessageError] = useState('');
+    const [messageInput, setMessageInput] = useState({name: '', email: '', message: ''});
+    const [statusMessageSuccess, setStatusMessageSuccess] = useState(false);
+    const [statusMessageError, setStatusMessageError] = useState('');
+    const [fieldsDisabled, setFieldsDisabled] = useState(true);
     const [submitDisabled, setSubmitDisabled] = useState(true);
-    const [sending, setSending] = useState(false);
+    const [messageStatus, setMessageStatus] = useState(MessageState.WAITING);
 
-    let watchValues = [messageState.name, messageState.email, messageState.message];
+    let watchValues = [messageInput.name, messageInput.email, messageInput.message];
 
     useEffect(() => {
-        resetMessages();
+        setFieldsDisabled(messageStatus === MessageState.SENDING || messageStatus === MessageState.SUCCESS);
+    }, [messageStatus]);
+
+    useEffect(() => {
+        resetStatusMessages();
         setSubmitDisabled(
-            messageState.name.length === 0 || 
-            messageState.email.length === 0 || 
-            !messageState.email.includes('@') || 
-            messageState.message.length === 0
+            messageInput.name.length === 0 || 
+            messageInput.email.length === 0 || 
+            !messageInput.email.includes('@') || 
+            messageInput.message.length === 0
         );
     }, watchValues);
 
     const sendMessage = useCallback(() => {
-        setSending(true);
-        resetMessages();
+        setMessageStatus(MessageState.SENDING);
+        resetStatusMessages();
         axios.post(CONTACT_ENDPOINT, {
             method: 'post',
             url: CONTACT_ENDPOINT,
             data: {
-                name: messageState.name,
-                email: messageState.email,
-                message: messageState.message
+                name: messageInput.name,
+                email: messageInput.email,
+                message: messageInput.message
             },
             timeout: 10000
         }).then((response) => {
             console.log(response);
-            setMessageSuccess('Message Sent!');
+            setStatusMessageSuccess('Message Sent!');
             setSubmitDisabled(true);
-            setSending(false);
+            setMessageStatus(MessageState.SUCCESS);
         }, (error) => {
             console.log(error);
-            setMessageError('Unable to send your message.  Please try again later, or contact Rodan on his Facebook, or Soundcloud.');
-            setSending(false);
+            setStatusMessageError('Unable to send your message.  Please try again later, or contact Rodan on his Facebook, or Soundcloud.');
+            setMessageStatus(MessageState.FAILED);
         });
     }, watchValues);
 
-    let resetMessages = () => {
-        setMessageSuccess(undefined);
-        setMessageError(undefined);
+    let resetStatusMessages = () => {
+        setStatusMessageSuccess(undefined);
+        setStatusMessageError(undefined);
     }
 
     let handleChange = name => event => {
-        setMessageState({...messageState, [name]: event.target.value });
+        setMessageInput({...messageInput, [name]: event.target.value });
     }
 
     return (
@@ -67,34 +78,31 @@ export default (props) => {
                         <Typography paragraph variant='caption'>Send me a message about bookings, music, or anything else music related.</Typography>
                     </Grid>
                     <Grid item xs={12} sm= {12} lg md xl>
-                        <RedTextBox type={FieldType.TEXT_FIELD} disabled={messageSuccess || sending} onChange={handleChange('name')} required id='name' label='Name' margin='normal'/>
+                        <RedTextBox type={FieldType.TEXT_FIELD} disabled={fieldsDisabled} onChange={handleChange('name')} required id='name' label='Name' margin='normal'/>
                     </Grid>
                     <Grid item xs={12} sm={12} lg md xl>
-                        <RedTextBox type={FieldType.TEXT_FIELD} disabled={messageSuccess || sending} onChange={handleChange('email')} required id='email' label='Email' margin='normal'/>
+                        <RedTextBox type={FieldType.TEXT_FIELD} disabled={fieldsDisabled} onChange={handleChange('email')} required id='email' label='Email' margin='normal'/>
                     </Grid>
                     <Grid item xs={12}>
                         <RedTextBox
-                            disabled={messageSuccess || sending} onChange={handleChange('message')} id='filled-multiline-static' 
+                            disabled={fieldsDisabled} onChange={handleChange('message')} id='filled-multiline-static' 
                             type={FieldType.TEXT_AREA} label='Message' multiline rows='4' margin='normal'variant='outlined'
                         />
                     </Grid>
                     <Grid align='right' item xs={12}>
-                        <RedButton disabled={submitDisabled  || sending} onClick={sendMessage}>
+                        <RedButton disabled={submitDisabled || fieldsDisabled} onClick={sendMessage}>
                             Submit
                         </RedButton>
                     </Grid>
                 </Grid>
             </ContentContainer>
             {
-                (messageError || messageSuccess) &&
+                (messageStatus === MessageState.SUCCESS || messageStatus === MessageState.FAILED) &&
                     <ContentContainer>
                         <Grid align='center' item xs={12}>
-                            {
-                                messageError && <Typography color={'error'} style={{paddingTop: '20px'}} variant='body1' paragraph>{messageError}</Typography>
-                            }
-                            {
-                                messageSuccess && <Typography color={'inherit'} style={{paddingTop: '20px'}} variant='h6' paragraph>{messageSuccess}</Typography>
-                            }
+                            {messageStatus === MessageState.FAILED && <Typography color={'error'} style={{paddingTop: '20px'}} variant='body1' paragraph>{statusMessageError}</Typography>}
+                            {messageStatus === MessageState.SUCCESS && <Typography color={'inherit'} style={{paddingTop: '20px'}} variant='h6' paragraph>{statusMessageSuccess}</Typography>
+}
                         </Grid>
                     </ContentContainer>
             }
