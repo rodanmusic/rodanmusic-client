@@ -3,13 +3,14 @@ import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Tabs, Tab, Box } from '@material-ui/core';
 import { navigate } from 'hookrouter';
 import RodanLogo from './RodanLogo';
+import { useMediaQuery } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
+    toolbar: {
+        background: 'black'
+    },
     tabLabel: {
       color: theme.palette.common.white
-    },
-    toolbar: {
-      background: 'black'
     },
     root: {
       flexGrow: 1,
@@ -34,8 +35,21 @@ export default (props) => {
     navigate('/' + newValue);
   }
 
+  const extraSmall = useMediaQuery('(max-width:400px)');
+  const extraLarge = useMediaQuery('(min-width:1050px)');
+
+  let toolbarStyle = {
+      paddingRight: '10px'
+  };
+
+  if(extraSmall){
+      toolbarStyle.paddingRight = '0px';
+  } else if(extraLarge) {
+      toolbarStyle.paddingRight = '30px';
+  }
+
   return (
-    <AppBar className={classes.toolbar} position='static'>
+    <AppBar style={toolbarStyle} className={classes.toolbar} position='static'>
         <Toolbar>
             <RodanLogo />
             <Box variant='h6' className={classes.title}/>

@@ -30,7 +30,6 @@ export default props => {
         <Grid item xs={12} style={styles.header}>
           <Navigation location={props.location.navValue} />
         </Grid>
-
         <Grid item xs={12} style={{marginBottom: '30px'}}>
           <Grid container direction='row' wrap='wrap-reverse'>
             <Grid item xs={12} sm>  

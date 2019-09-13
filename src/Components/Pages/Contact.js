@@ -21,10 +21,10 @@ export default (props) => {
     const [submitDisabled, setSubmitDisabled] = useState(true);
     const [messageStatus, setMessageStatus] = useState(MessageState.WAITING);
 
-    let watchValues = [messageInput.name, messageInput.email, messageInput.message];
-
     useEffect(() => {
-        setFieldsDisabled(messageStatus === MessageState.SENDING || messageStatus === MessageState.SUCCESS);
+        setFieldsDisabled(
+            [MessageState.SENDING, MessageState.SUCCESS].includes(messageStatus)
+        );
     }, [messageStatus]);
 
     useEffect(() => {
@@ -35,7 +35,7 @@ export default (props) => {
             !messageInput.email.includes('@') || 
             messageInput.message.length === 0
         );
-    }, watchValues);
+    }, [messageInput.name, messageInput.email, messageInput.message]);
 
     const sendMessage = useCallback(() => {
         setMessageStatus(MessageState.SENDING);
@@ -59,7 +59,7 @@ export default (props) => {
             setStatusMessageError('Unable to send your message.  Please try again later, or contact Rodan on his Facebook, or Soundcloud.');
             setMessageStatus(MessageState.FAILED);
         });
-    }, watchValues);
+    }, [messageInput.name, messageInput.email, messageInput.message]);
 
     let resetStatusMessages = () => {
         setStatusMessageSuccess(undefined);
@@ -77,7 +77,7 @@ export default (props) => {
                     <Grid item xs={12} >
                         <Typography paragraph variant='caption'>Send me a message about bookings, music, or anything else music related.</Typography>
                     </Grid>
-                    <Grid item xs={12} sm= {12} lg md xl>
+                    <Grid item xs={12} sm={12} lg md xl>
                         <RedTextBox type={FieldType.TEXT_FIELD} disabled={fieldsDisabled} onChange={handleChange('name')} required id='name' label='Name' margin='normal'/>
                     </Grid>
                     <Grid item xs={12} sm={12} lg md xl>
@@ -97,7 +97,7 @@ export default (props) => {
                 </Grid>
             </ContentContainer>
             {
-                (messageStatus === MessageState.SUCCESS || messageStatus === MessageState.FAILED) &&
+                ([MessageState.SUCCESS, MessageState.FAILED].includes(messageStatus)) &&
                     <ContentContainer>
                         <Grid align='center' item xs={12}>
                             {messageStatus === MessageState.FAILED && <Typography color={'error'} style={{paddingTop: '20px'}} variant='body1' paragraph>{statusMessageError}</Typography>}
