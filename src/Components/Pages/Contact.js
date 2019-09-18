@@ -42,7 +42,6 @@ export default (props) => {
         resetStatusMessages();
         axios.post(CONTACT_ENDPOINT, {
             method: 'post',
-            url: CONTACT_ENDPOINT,
             data: {
                 name: messageInput.name,
                 email: messageInput.email,
