@@ -5,7 +5,7 @@ import { RedButton } from "../Common/RedButton";
 import { RedTextBox, FieldType } from "../Common/RedTextBox";
 
 const axios = require('axios');
-const CONTACT_ENDPOINT = 'http://localhost:4000/contact/send';
+const CONTACT_ENDPOINT = '/contact/send';
 const MessageState = {
     WAITING: 'WAITING',
     SENDING: 'SENDING',
@@ -109,4 +109,3 @@ export default (props) => {
         </>
     );
 }
-    
