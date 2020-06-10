@@ -10,12 +10,7 @@ export default (props) => {
             <ContentContainer title='LATEST TRACKS' >
                 <Typography paragraph variant='body2'>
                     {
-                        !isSmallFormat &&
-                         <iframe title='Tracks' width="100%" height="300" scrolling="no" frameBorder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/545164371&color=%23f50057&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe> 
-                    }
-                    {
-                        isSmallFormat &&
-                        <iframe title='Tracks' width="100%" height="350" scrolling="no" frameBorder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/545164371&color=%23f50057&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                        <iframe title='Tracks' width="100%" height={!isSmallFormat ? '300' : '350'} scrolling="no" frameBorder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/545164371&color=%23f50057&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>                         
                     }
                 </Typography>
             </ContentContainer>
@@ -23,12 +18,8 @@ export default (props) => {
                 <Typography paragraph variant='body2'>
                     {   
                         !isSmallFormat &&
-                        <iframe title='Mixes' width="100%" height="300" scrolling="no" frameBorder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/545164992&color=%23f50057&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe> 
-                    }
-                    {
-                        isSmallFormat &&
-                        <iframe title='Mixes' width="100%" height="350" scrolling="no" frameBorder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/545164992&color=%23f50057&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-                    }
+                        <iframe title='Tracks' width="100%" height={!isSmallFormat ? '300' : '350'} scrolling="no" frameBorder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/545164992&color=%23f50057&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe> 
+                    }                    
                 </Typography>
             </ContentContainer>
         </>
