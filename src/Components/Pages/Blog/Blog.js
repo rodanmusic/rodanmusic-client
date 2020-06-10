@@ -45,9 +45,9 @@ export default (props) => {
 
     return (
         <>
-            <ContentContainer title='LATEST BLOG POSTS' >
+            <ContentContainer title='LATEST BLOG POSTS'>
                 <Typography paragraph variant='caption'>
-                    Follow me and discover more music on the <a href='http://rodanmusic.tumblr.com/'>Night Beats</a> blog.
+                    Follow Rodan and discover more music on the <a href='https://www.night-beats.com/'>Night Beats</a> blog.
                 </Typography>
                 <Typography variant='caption'>
                     <Selector items={Tags} default={'Techno'} handleSelect={tagSelected} descriptor={'Select a genre'}></Selector>

@@ -1,9 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, Tabs, Tab, Box } from '@material-ui/core';
+import { AppBar } from '@material-ui/core';
 import { navigate } from 'hookrouter';
-import RodanLogo from './RodanLogo';
 import { useMediaQuery } from '@material-ui/core';
+import NavSmall from './NavSmall';
+import NavMedium from './NavMedium';
+import NavLarge from './NavLarge';
 
 const useStyles = makeStyles(theme => ({
     toolbar: {
@@ -21,24 +23,31 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
+const navOptions = ['Home', 'Media', 'Events', 'Blog', 'Contact'];
+
 export default (props) => {
   const [value, setValue] = React.useState('home');
   const classes = useStyles();
+  const [menuVisibility, setMenuVisibility] = React.useState(false);
 
   // to handle browser back/forward
   if(props.location && props.location !== value ){
     setValue(props.location);
   }
 
-  function handleNavigate(event, newValue){
-    setValue(newValue);
-    navigate('/' + newValue);
+  const toggleMenuVisibility = () => {
+    setMenuVisibility(!menuVisibility);
+  }
+
+  const handleNavigate = (location) => {
+    setMenuVisibility(false);
+    setValue(location.toLowerCase());
+    navigate('/' + location.toLowerCase());
   }
 
   const extraSmall = useMediaQuery('(max-width:400px)');
-  const extraLarge = useMediaQuery('(min-width:1050px)');
-
-  let toolbarStyle = {
+  const extraLarge = useMediaQuery('(min-width:800px)');
+  const toolbarStyle = {
       paddingRight: '10px'
   };
 
@@ -50,17 +59,15 @@ export default (props) => {
 
   return (
     <AppBar style={toolbarStyle} className={classes.toolbar} position='static'>
-        <Toolbar>
-            <RodanLogo />
-            <Box variant='h6' className={classes.title}/>
-            <Tabs value={value} onChange={handleNavigate} indicatorColor='secondary' scrollButtons='on' variant='scrollable'>
-              <Tab value='home' label='Bio' />
-              <Tab value='media' label='Media' />
-              <Tab value='events' label='Events' />
-              <Tab value='blog' label='Blog' />
-              <Tab value='contact' label='Contact' />
-            </Tabs>
-        </Toolbar>
+      {
+        extraSmall && <NavSmall menuVisibility={menuVisibility} toggleMenuVisibility={toggleMenuVisibility} navOptions={navOptions} handleNavigate={handleNavigate} />
+      }
+      { 
+        !extraLarge && ! extraSmall && <NavMedium navOptions={navOptions} handleNavigate={handleNavigate} location={value} />
+      }
+      { 
+        extraLarge && <NavLarge navOptions={navOptions} handleNavigate={handleNavigate} location={value}/>
+      }
     </AppBar>
   );
 };

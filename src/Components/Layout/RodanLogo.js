@@ -1,25 +1,22 @@
 import React from 'react';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import LogoLocation from './Images/RodanLogo.jpg';
+import { Button } from '@material-ui/core';
+
 
 const styles = {
     logo: {
-      padding: '19px 20px 0px 0px',
+      padding: '19px 0px 0px 0px',
       height: '25px'
     }
 };
 
 export default (props) => {
-
-  const matches = useMediaQuery('(min-width: 400px)');
-  let logoCrop = matches ? {} : {maxWidth: '30px', overflow: 'hidden'};
-
   return (
       <>
-        <div style={logoCrop}>
-          <a href='/'>
+        <div>
+          <Button onClick={props.onClick}>
             <img style={styles.logo} alt='Rodan' src={LogoLocation} />
-          </a>
+          </Button>
         </div>
       </>
   );

@@ -12,8 +12,8 @@ export default (props) => {
                 src='https://player.twitch.tv/?channel=c0ldstorage'
                 style={{width: '100%', height: '300px'}}
                 title='COLDSTORAGE Stream'
-                frameborder='0'
-                allowfullscreen='true' 
+                frameBorder='0'
+                allowFullScreen={true}
                 scrolling='no'
                 height='378' 
                 width='620'>
