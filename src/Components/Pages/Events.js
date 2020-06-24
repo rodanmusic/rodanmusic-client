@@ -6,7 +6,7 @@ export default (props) => {
     return (
         <ContentContainer title='EVENTS' >
             <Typography paragraph variant='caption'>
-                Rodan Streams live on the <a href='https://www.twitch.tv/c0ldstorage?tt_content=text_link&tt_medium=live_embed'>C0LDSTORAGE</a> with Soda Pop every Saturday @ 9PM MST.
+                Rodan Streams live on the <a href='https://www.twitch.tv/c0ldstorage?tt_content=text_link&tt_medium=live_embed'>c0ldstorage</a> with Soda Pop every Saturday @ 9PM MST.
             </Typography>
             <iframe 
                 src='https://player.twitch.tv/?channel=c0ldstorage&parent=www.rodanmusic.com&parent=rodanmusic.com'
