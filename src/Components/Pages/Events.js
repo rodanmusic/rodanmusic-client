@@ -1,10 +1,8 @@
 import React from 'react';
 import { Typography} from '@material-ui/core';
 import { ContentContainer } from '../Layout'
-import Paradigm from './Events/paradigm.jpg';
 
 export default (props) => {
-    const imageSize = {width: '95%', height: '95%'};
     return (
         <>
             <ContentContainer title='LIVE STREAM'>
