@@ -2,6 +2,7 @@ import React from 'react';
 import { Typography} from '@material-ui/core';
 import { ContentContainer } from '../Layout'
 import limb from '../Pages/Events/limb.jpg';
+import taurus from '../Pages/Events/taurus.jpg'
 
 const styles = {
     image: {
@@ -34,7 +35,13 @@ export default (props) => {
                     <a href="https://www.facebook.com/events/350740229981955/?ref=newsfeed">
                         <img style={styles.image} src={limb} alt='Limbleshwiften Presents' />
                     </a>
-            </ContentContainer>               
+            </ContentContainer>            
+            <ContentContainer title='04-23-2021 - Taurus Campout'>
+                <Typography paragraph variant='caption'>
+                    Techno in the Nevada desert mountains.
+                </Typography>
+                    <img style={styles.image} src={taurus} alt='Limbleshwiften Presents' />
+            </ContentContainer>          
         </>
     );
 }
