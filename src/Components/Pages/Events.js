@@ -3,6 +3,7 @@ import { Typography} from '@material-ui/core';
 import { ContentContainer } from '../Layout'
 import limb from '../Pages/Events/limb.jpg';
 import taurus from '../Pages/Events/taurus.jpg'
+import artbeats from '../Pages/Events/artbeats.jpg'
 
 const styles = {
     image: {
@@ -32,15 +33,21 @@ export default (props) => {
                 <Typography paragraph variant='caption'>
                     A Night of House & Techno featuring c0ldstorage.
                 </Typography>
-                    <a href="https://www.facebook.com/events/350740229981955/?ref=newsfeed">
-                        <img style={styles.image} src={limb} alt='Limbleshwiften Presents' />
-                    </a>
+                <a href="https://www.facebook.com/events/350740229981955/?ref=newsfeed">
+                    <img style={styles.image} src={limb} alt='Limbleshwiften Presents' />
+                </a>
             </ContentContainer>            
+            <ContentContainer title='07-21-2021 - Art Beats'>
+                <Typography paragraph variant='caption'>
+                    Playing Deep House, Funky House, Tech House, and some techno at an upscale wine and art bar.
+                </Typography>
+                <img style={styles.image} src={artbeats} alt='Art Beats' />
+            </ContentContainer>                
             <ContentContainer title='04-23-2021 - Taurus Campout'>
                 <Typography paragraph variant='caption'>
                     Techno in the Nevada desert mountains.
                 </Typography>
-                    <img style={styles.image} src={taurus} alt='Limbleshwiften Presents' />
+                <img style={styles.image} src={taurus} alt='Taurus Campout' />
             </ContentContainer>          
         </>
     );
