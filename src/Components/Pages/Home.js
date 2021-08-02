@@ -15,7 +15,7 @@ export default (props) => {
             </Typography>
             <Typography paragraph variant='body2'>
                     Slowly, writing music in Fruityloops became more exciting than programming or designing the RPG, and Rodan abandoned the project to spend all of his time writing music.
-                    These days Rodan alternates between Bitwig and Studio One.
+                    These days Rodan alternates between Studio One, Logic Pro X, Bitwig, and FL Studio.
             </Typography>
         </ContentContainer>
     );

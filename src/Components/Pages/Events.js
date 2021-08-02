@@ -34,7 +34,7 @@ export default (props) => {
                     A Night of House & Techno featuring c0ldstorage.
                 </Typography>
                 <a href="https://www.facebook.com/events/350740229981955/?ref=newsfeed">
-                    <img style={styles.image} src={limb} alt='Limbleshwiften Presents' />
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/LKH46pD13wQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </a>
             </ContentContainer>            
             <ContentContainer title='07-21-2021 - Art Beats'>
@@ -52,4 +52,3 @@ export default (props) => {
         </>
     );
 }
-    
