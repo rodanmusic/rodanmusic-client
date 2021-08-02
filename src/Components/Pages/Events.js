@@ -16,12 +16,12 @@ export default (props) => {
         <>
             <ContentContainer title='c0ldstorage live'>
                 <Typography paragraph variant='caption'>
-                    Rodan Streams live on the <a href='https://www.twitch.tv/c0ldstorage?tt_content=text_link&tt_medium=live_embed'>c0ldstorage</a> with Soda Pop every Saturday @ 9PM MST.
+                    Rodan Streams live on the <a href='https://www.twitch.tv/c0ldstorage?tt_content=text_link&tt_medium=live_embed'>c0ldstorage</a> every Saturday @ 9PM Mountain Time.
                 </Typography>
                 <iframe 
                     src='https://player.twitch.tv/?channel=c0ldstorage&parent=www.rodanmusic.com&parent=rodanmusic.com'
                     style={{width: '100%', height: '300px'}}
-                    title='COLDSTORAGE Stream'
+                    title='c0ldstorage Stream'
                     frameBorder='0'
                     allowFullScreen={true}
                     scrolling='no'
