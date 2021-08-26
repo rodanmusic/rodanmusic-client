@@ -1,9 +1,9 @@
 import React from 'react';
 import { Typography} from '@material-ui/core';
 import { ContentContainer } from '../Layout'
-import limb from '../Pages/Events/limb.jpg';
 import taurus from '../Pages/Events/taurus.jpg'
 import artbeats from '../Pages/Events/artbeats.jpg'
+import insanity from '../Pages/Events/Insanity.jpg'
 
 const styles = {
     image: {
@@ -28,7 +28,15 @@ export default (props) => {
                     height='378' 
                     width='620'>
                 </iframe>                
-            </ContentContainer>        
+            </ContentContainer>    
+            <ContentContainer title='09-10-2021 - Insanity Fridays'>
+                <Typography paragraph variant='caption'>
+                    A two day camping event featuring a c0ldstorage takeover on Friday night.
+                </Typography>
+                <a href="https://www.facebook.com/events/536285940824617?ref=newsfeed">
+                    <img style={styles.image} src={insanity} alt='Insanity Fridays' />
+                </a>                                    
+            </ContentContainer>                      
             <ContentContainer title='08-06-2021 - Limbleshwiften Presents'>
                 <Typography paragraph variant='caption'>
                     A Night of House & Techno featuring c0ldstorage.
