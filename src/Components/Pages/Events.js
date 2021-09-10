@@ -4,6 +4,20 @@ import { ContentContainer } from '../Layout'
 import taurus from '../Pages/Events/taurus.jpg'
 import artbeats from '../Pages/Events/artbeats.jpg'
 import insanity from '../Pages/Events/Insanity.jpg'
+import konnexion from '../Pages/Events/Konnexion.jpg'
+import laytonbeatz from '../Pages/Events/LaytonBeatz.jpg'
+import laytonbeatz2 from '../Pages/Events/LaytonBeatz2.jpg'
+import audiobot from '../Pages/Events/Audiobot.jpg'
+import blakliteseduction from '../Pages/Events/BlackLiteSeduction.jpg'
+import blakliteGarage from '../Pages/Events/BlackLiteGarage.jpg'
+import blaklite from '../Pages/Events/BlakLite.jpg'
+import blaklitevalentines from '../Pages/Events/ValentinesDay.jpg'
+import kandyland from '../Pages/Events/KandyLand.jpg'
+import fire from '../Pages/Events/Fire.jpg'
+import ice from '../Pages/Events/Ice.jpg'
+import contra from '../Pages/Events/Contra.jpg'
+import boulevardbassics from '../Pages/Events/BoulevardBassics.jpg'
+import hookahlounge from '../Pages/Events/HookahLounge.jpg'
 
 const styles = {
     image: {
@@ -56,7 +70,66 @@ export default (props) => {
                     Techno in the Nevada desert mountains.
                 </Typography>
                 <img style={styles.image} src={taurus} alt='Taurus Campout' />
+            </ContentContainer>       
+            <ContentContainer title='08-23-2013 - Konnexion Music Festival'>
+                <Typography paragraph variant='caption'>
+                    Electronic music festival in Idaho.
+                </Typography>
+                <img style={styles.image} src={konnexion} alt='Konnexion Festival' />
+            </ContentContainer>              
+            <ContentContainer title='07-23-2012 - Layton Beatz'>
+                <img style={styles.image} src={laytonbeatz2} alt='Layton Beatz' />
             </ContentContainer>          
+            <ContentContainer title='12-16-2011 - Audiobot'>
+                <Typography paragraph variant='caption'>
+                    Electronic music in Pocatello, ID.
+                </Typography>
+                <img style={styles.image} src={audiobot} alt='Audiobot' />
+            </ContentContainer>                                                    
+            <ContentContainer title='12-03-2011 - Black Lite Seduction'>
+                <img style={styles.image} src={blakliteseduction} alt='Black Lite Seduction' />
+            </ContentContainer>      
+            <ContentContainer title='08-22-2011 - Layton Beatz'>
+                <Typography paragraph variant='caption'>
+                    Techno in the park!
+                </Typography>
+                <img style={styles.image} src={laytonbeatz} alt='Layton Beatz' />
+            </ContentContainer>                        
+            <ContentContainer title='02-14-2011 - St. Valentines Day Massacre'>
+                <img style={styles.image} src={blaklitevalentines} alt='St. Valentines Day Massacre' />
+            </ContentContainer>                                
+            <ContentContainer title='12-31-2010 - Blak Lite Presents New Year'>
+                <img style={styles.image} src={blaklite} alt='Blak Lite Presents New Year' />
+            </ContentContainer>                                       
+            <ContentContainer title='10-23-2010 - Blak Lite Garage'>
+                <img style={styles.image} src={blakliteGarage} alt='Blak Lite Garage' />
+            </ContentContainer>                                     
+            <ContentContainer title='10-18-2008 - Fire'>
+                <img style={styles.image} src={fire} alt='Fire' />
+            </ContentContainer>      
+            <ContentContainer title='10-18-2008 - Ice'>
+                <img style={styles.image} src={ice} alt='Ice' />
+            </ContentContainer>          
+            <ContentContainer title='09-19-2008 - Kandy Land'>
+                <img style={styles.image} src={kandyland} alt='Kandy Land' />
+            </ContentContainer>                   
+            <ContentContainer title='08-18-2008 - Contra'>
+                <img style={styles.image} src={contra} alt='Contra' />
+            </ContentContainer>                         
+            <ContentContainer title='08-16-2008 - Boulevard Bassics'>
+                <img style={styles.image} src={boulevardbassics} alt='Boulevard Bassics' />
+            </ContentContainer>       
+            <ContentContainer title='2007 - Puff Puff Pass Pass'>
+                <Typography paragraph variant='caption'>
+                    Weekly Ongoing Residency at the downtown Hookah Lounge in 2007.
+                </Typography>
+                <img style={styles.image} src={hookahlounge} alt='Puff Puff Pass Pass' />
+            </ContentContainer>                                            
+            
         </>
     );
 }
+
+/*
+
+*/
