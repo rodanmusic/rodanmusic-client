@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigation, Footer } from '.';
 import { Grid, useMediaQuery} from '@material-ui/core';
-import RodanPhoto from './Images/RodanStutterStyleTwo.gif';
+import RodanPhoto from './Images/RodanStutter.gif';
 
 const styles = {
   header: {
