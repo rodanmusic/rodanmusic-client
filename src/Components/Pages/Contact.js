@@ -74,7 +74,7 @@ export default (props) => {
             <ContentContainer title='CONTACT ME'>
                 <Grid container>
                     <Grid item xs={12} >
-                        <Typography paragraph variant='caption'>Send me a message about bookings, music, or anything else music related.</Typography>
+                        <Typography paragraph variant='caption'>Send me a message about bookings, or anything else music related.</Typography>
                     </Grid>
                     <Grid item xs={12} sm={12} lg md xl>
                         <RedTextBox type={FieldType.TEXT_FIELD} disabled={fieldsDisabled} onChange={handleChange('name')} required id='name' label='Name' margin='normal'/>
