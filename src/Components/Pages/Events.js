@@ -42,7 +42,8 @@ export default (props) => {
                     height='378' 
                     width='620'>
                 </iframe>                
-            </ContentContainer>    
+            </ContentContainer>   
+
             <ContentContainer title='09-10-2021 - Insanity Fridays'>
                 <Typography paragraph variant='caption'>
                     A two day camping event featuring a c0ldstorage takeover on Friday night.
@@ -50,7 +51,8 @@ export default (props) => {
                 <a href="https://www.facebook.com/events/536285940824617?ref=newsfeed">
                     <img style={styles.image} src={insanity} alt='Insanity Fridays' />
                 </a>                                    
-            </ContentContainer>                      
+            </ContentContainer>    
+
             <ContentContainer title='08-06-2021 - Limbleshwiften Presents'>
                 <Typography paragraph variant='caption'>
                     A Night of House & Techno featuring c0ldstorage.
@@ -58,67 +60,83 @@ export default (props) => {
                 <a href="https://www.facebook.com/events/350740229981955/?ref=newsfeed">
                     <iframe width="100%" height="315" src="https://www.youtube.com/embed/LKH46pD13wQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </a>
-            </ContentContainer>            
+            </ContentContainer>   
+
             <ContentContainer title='07-21-2021 - Art Beats'>
                 <Typography paragraph variant='caption'>
                     Playing Deep House, Funky House, Tech House, and some techno at an upscale wine and art bar.
                 </Typography>
                 <img style={styles.image} src={artbeats} alt='Art Beats' />
-            </ContentContainer>                
+            </ContentContainer>   
+
             <ContentContainer title='04-23-2021 - Taurus Campout'>
                 <Typography paragraph variant='caption'>
                     Techno in the Nevada desert mountains.
                 </Typography>
                 <img style={styles.image} src={taurus} alt='Taurus Campout' />
-            </ContentContainer>       
+            </ContentContainer>     
+
             <ContentContainer title='08-23-2013 - Konnexion Music Festival'>
                 <Typography paragraph variant='caption'>
                     Electronic music festival in Idaho.
                 </Typography>
                 <img style={styles.image} src={konnexion} alt='Konnexion Festival' />
-            </ContentContainer>              
+            </ContentContainer>    
+
             <ContentContainer title='07-23-2012 - Layton Beatz'>
                 <img style={styles.image} src={laytonbeatz2} alt='Layton Beatz' />
-            </ContentContainer>          
+            </ContentContainer>      
+
             <ContentContainer title='12-16-2011 - Audiobot'>
                 <Typography paragraph variant='caption'>
                     Electronic music in Pocatello, ID.
                 </Typography>
                 <img style={styles.image} src={audiobot} alt='Audiobot' />
-            </ContentContainer>                                                    
+            </ContentContainer>    
+
             <ContentContainer title='12-03-2011 - Black Lite Seduction'>
                 <img style={styles.image} src={blakliteseduction} alt='Black Lite Seduction' />
             </ContentContainer>      
+
             <ContentContainer title='08-22-2011 - Layton Beatz'>
                 <Typography paragraph variant='caption'>
                     Techno in the park!
                 </Typography>
                 <img style={styles.image} src={laytonbeatz} alt='Layton Beatz' />
-            </ContentContainer>                        
+            </ContentContainer>      
+
             <ContentContainer title='02-14-2011 - St. Valentines Day Massacre'>
                 <img style={styles.image} src={blaklitevalentines} alt='St. Valentines Day Massacre' />
-            </ContentContainer>                                
+            </ContentContainer>      
+
             <ContentContainer title='12-31-2010 - Blak Lite Presents New Year'>
                 <img style={styles.image} src={blaklite} alt='Blak Lite Presents New Year' />
-            </ContentContainer>                                       
+            </ContentContainer>   
+
             <ContentContainer title='10-23-2010 - Blak Lite Garage'>
                 <img style={styles.image} src={blakliteGarage} alt='Blak Lite Garage' />
-            </ContentContainer>                                     
+            </ContentContainer>    
+
             <ContentContainer title='10-18-2008 - Fire'>
                 <img style={styles.image} src={fire} alt='Fire' />
-            </ContentContainer>      
+            </ContentContainer> 
+
             <ContentContainer title='10-18-2008 - Ice'>
                 <img style={styles.image} src={ice} alt='Ice' />
-            </ContentContainer>          
+            </ContentContainer>    
+
             <ContentContainer title='09-19-2008 - Kandy Land'>
                 <img style={styles.image} src={kandyland} alt='Kandy Land' />
-            </ContentContainer>                   
+            </ContentContainer>  
+
             <ContentContainer title='08-18-2008 - Contra'>
                 <img style={styles.image} src={contra} alt='Contra' />
-            </ContentContainer>                         
+            </ContentContainer>   
+
             <ContentContainer title='08-16-2008 - Boulevard Bassics'>
                 <img style={styles.image} src={boulevardbassics} alt='Boulevard Bassics' />
-            </ContentContainer>       
+            </ContentContainer>  
+                 
             <ContentContainer title='2007 - Puff Puff Pass Pass'>
                 <Typography paragraph variant='caption'>
                     Weekly Ongoing Residency at the downtown Hookah Lounge in 2007.

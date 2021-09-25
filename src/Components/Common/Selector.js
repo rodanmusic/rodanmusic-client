@@ -25,15 +25,15 @@ export default (props) => {
         }
     };
     return (
-            <FormControl>
-                <NativeSelect className={classes.underline}  value={selectedItem} onChange={onSelect} input={<Input name="selectorInput" id="selectorInput" />}>
-                    {
-                        props.items && props.items.map((value, index) => {
-                            return <option key={index} value={value}>{value}</option>
-                        })
-                    }
-                </NativeSelect>
-                <FormHelperText>{props.descriptor}</FormHelperText>
-            </FormControl>
+        <FormControl>
+            <NativeSelect className={classes.underline}  value={selectedItem} onChange={onSelect} input={<Input name="selectorInput" id="selectorInput" />}>
+                {
+                    props.items && props.items.map((value, index) => {
+                        return <option key={index} value={value}>{value}</option>
+                    })
+                }
+            </NativeSelect>
+            <FormHelperText>{props.descriptor}</FormHelperText>
+        </FormControl>
     );
 }

@@ -26,7 +26,7 @@ export default (props) => {
             </ContentContainer>       
             <ContentContainer title='Social Media'>
                 <Typography paragraph variant='caption'>
-                    <a href="https://linktr.ee/rodanmusic">Social Media Accounts</a>
+                    <a href="https://drum.io/rodanmusic">Social Media Accounts</a>
                 </Typography>
             </ContentContainer>                
         </>     

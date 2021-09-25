@@ -55,7 +55,7 @@ export default (props) => {
             setMessageStatus(MessageState.SUCCESS);
         }, (error) => {
             console.log(error);
-            setStatusMessageError('Unable to send your message.  Please try again later, or contact Rodan on his Facebook, or Soundcloud.');
+            setStatusMessageError('Unable to send your message.  Please try again later, or contact Rodan on his Facebook or Soundcloud page.');
             setMessageStatus(MessageState.FAILED);
         });
     }, [messageInput.name, messageInput.email, messageInput.message]);
